@@ -1,0 +1,31 @@
+# Конфиденциальные данные
+*.secret
+*.token
+*.key
+id_rsa*
+id_ed25519*
+
+# Временные файлы
+*~
+*.swp
+*.swo
+*.log
+*.tmp
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+
+# Кэш приложений
+.waybar.last.json
+kitty.log
+hyprland.log
+
+# Резервные копии
+*.bak
+*.backup
+
+# Библиотеки и зависимости
+node_modules/
+__pycache__/
+*.pyc
