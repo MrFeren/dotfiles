@@ -1,0 +1,94 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+  "modules-left": ["custom/arch", "hyprland/workspaces", "cpu", "memory", "custom/nvidia", "custom/gputemp"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["network", "pulseaudio", "clock", "tray", "custom/wofi"],
+  
+  "custom/arch": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "kitty"
+  },
+  
+  "hyprland/workspaces": {
+    "format": "{}",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  },
+  
+  "cpu": {
+    "interval": 5,
+    "format": " {usage}%",
+    "max-length": 10,
+    "tooltip": true
+  },
+  
+  "memory": {
+    "interval": 5,
+    "format": " {percentage}%",
+    "tooltip": true
+  },
+  
+  "custom/nvidia": {
+    "interval": 5,
+    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{ print $1\"%\" }'",
+    "format": " {}",
+    "tooltip": true
+  },
+  
+  "custom/gputemp": {
+    "interval": 5,
+    "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
+    "format": " {}°C",
+    "tooltip": false
+  },
+  
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 50,
+    "separate-outputs": true
+  },
+  
+  "network": {
+    "interval": 5,
+    "format-wifi": " ",
+    "format-ethernet": " ",
+    "format-disconnected": "",
+    "tooltip-format": "{essid} ({signalStrength}%) - {ifname}: {ipaddr}",
+    "on-click": "bash -c '~/.config/waybar/scripts/network-menu.sh'",
+    "on-click-right": "nm-connection-editor"
+  },
+  
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " Muted",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "scroll-step": 5,
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "tooltip": false
+  },
+  
+  "clock": {
+    "interval": 60,
+    "format": " {:%H:%M}",
+    "tooltip-format": " {:%A, %d %B %Y}",
+    "max-length": 25,
+    "on-click": "gsimplecal"
+  },
+  
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  },
+  
+  "custom/wofi": {
+    "format": "",
+    "on-click": "wofi --show drun",
+    "tooltip": false
+  }
+}

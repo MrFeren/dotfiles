@@ -1,0 +1,130 @@
+* {
+    border: none;
+    border-radius: 8px;
+    font-family: "FiraCode Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Brands";
+    font-size: 13px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(30, 30, 46, 0.9); /* Темная основа с прозрачностью */
+    color: #cdd6f4;
+    border-bottom: 2px solid rgba(108, 112, 134, 0.4);
+    transition: none;
+}
+
+/* Модули слева */
+#custom-arch,
+#workspaces,
+#cpu,
+#memory,
+#custom-nvidia,
+#custom-gputemp {
+    padding: 0 10px;
+    margin: 4px 3px;
+    background: rgba(69, 71, 90, 0.6); /* Базовый цвет элементов */
+    border-radius: 8px;
+}
+
+/* Логотип Arch */
+#custom-arch {
+    color: #89b4fa;
+    background: rgba(137, 180, 250, 0.2);
+    font-size: 18px;
+    padding: 0 12px;
+}
+
+/* Рабочие столы */
+#workspaces button {
+    color: #a6adc8;
+    padding: 0 6px;
+}
+
+#workspaces button.active {
+    color: #74c7ec;
+    background: rgba(116, 199, 236, 0.2);
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+}
+
+/* Центральные модули */
+#window {
+    padding: 0 12px;
+    margin: 4px 3px;
+    background: rgba(69, 71, 90, 0.6);
+    border-radius: 8px;
+}
+
+/* Модули справа */
+#network,
+#pulseaudio,
+#clock,
+#tray,
+#custom-wofi {
+    padding: 0 12px;
+    margin: 4px 3px;
+    background: rgba(69, 71, 90, 0.6);
+    border-radius: 8px;
+}
+
+/* Цвета для различных модулей */
+#cpu {
+    color: #94e2d5;
+}
+
+#memory {
+    color: #cba6f7;
+}
+
+#custom-nvidia {
+    color: #f9e2af;
+}
+
+#custom-gputemp {
+    color: #fab387;
+}
+
+#network {
+    color: #89b4fa;
+}
+
+#pulseaudio {
+    color: #a6e3a1;
+}
+
+#clock {
+    color: #f5c2e7;
+}
+
+#custom-wofi {
+    color: #b4befe;
+    background: rgba(180, 190, 254, 0.2);
+}
+
+/* Индикатор зарядки (если нужно будет добавить) */
+#battery.charging {
+    color: #a6e3a1;
+}
+
+#battery.warning:not(.charging) {
+    color: #f9e2af;
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: rgba(243, 139, 168, 0.3);
+        color: #cdd6f4;
+    }
+}
